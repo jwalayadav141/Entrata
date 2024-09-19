@@ -56,6 +56,19 @@
 			<artifactId>slf4j-simple</artifactId>
 			<version>2.0.16</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>5.9.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-chrome-driver</artifactId>
+			<version>4.24.0</version>
+		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
@@ -64,6 +77,40 @@
 			<version>4.24.0</version>
 		</dependency>
 	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>Entrata</id>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-compiler-plugin</artifactId>
+							<configuration>
+								<compilerVersion>3.5.1</compilerVersion>
+								<source>8</source>
+								<target>8</target>
+							</configuration>
+						</plugin>
+
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-surefire-plugin</artifactId>
+							<version>3.0.0-M1</version>
+							<configuration>
+								<suiteXmlFiles>
+									<suiteXmlFile>testng.xml</suiteXmlFile>
+								</suiteXmlFiles>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+
+
+		</profile>
+	</profiles>
 
 	<build>
 		<pluginManagement>
@@ -74,6 +121,7 @@
 					<artifactId>maven-clean-plugin</artifactId>
 					<version>3.4.0</version>
 				</plugin>
+
 				<!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
 				<plugin>
 					<artifactId>maven-resources-plugin</artifactId>
